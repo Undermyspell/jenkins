@@ -2,27 +2,19 @@ pipeline {
     agent any
 
     stages {
-        parallel(
-            stage('Build') {
-                steps {
-                    echo 'Building..'
-                }
-            }
-            stage('Test') {
-                steps {
-                    echo 'Testing..'
-                }
-            }
-            stage('Deploy') {
-                steps {
-                    sh echo 'Deploying....'
-                    sh echo ${USER_ACCOUNT}
-                }
-            }
-        )
-        stage('Docker run') {
+        stage('Build') {
             steps {
-                sh docker run --rm hello-world
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
