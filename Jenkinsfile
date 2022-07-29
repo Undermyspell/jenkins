@@ -16,16 +16,13 @@ pipeline {
                 }
                 stage('Deploy') {
                     steps {
-                        sh echo 'Deploying....'
-                        sh echo ${USER_ACCOUNT}
+                        sh "echo Deploying...."
+                        sh "echo ${USER_ACCOUNT}"
                     }
                 }
             }
         }
         stage('Docker run') {
-            steps {
-                sh echo "lets run docker"
-            }
             steps {
                 sh "docker run --rm hello-world"
             }
