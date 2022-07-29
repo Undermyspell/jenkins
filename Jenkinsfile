@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Docker run') {
             steps {
-                sh docker run --rm hello-world
+                sh "docker run --rm hello-world"
             }
         }
     }
