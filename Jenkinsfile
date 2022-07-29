@@ -24,6 +24,9 @@ pipeline {
         }
         stage('Docker run') {
             steps {
+                sh echo "lets run docker"
+            }
+            steps {
                 sh "docker run --rm hello-world"
             }
         }
