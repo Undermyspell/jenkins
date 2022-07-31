@@ -18,6 +18,7 @@ pipeline {
                     steps {
                         sh "echo Deploying...."
                         sh "echo ${USER_ACCOUNT}"
+                        sh "echo Deploy finished..."
                     }
                 }
             }
