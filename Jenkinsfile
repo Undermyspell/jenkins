@@ -28,5 +28,15 @@ pipeline {
                 sh "docker run --rm hello-world"
             }
         }
+        stage('Docker build') {
+            steps {
+                sh "docker build -t ng-sample ./ng-sample"
+            }
+        }
+         stage('Docker clean') {
+            steps {
+                sh "docker rmi -f ng-sample"
+            }
+        }
     }
 }
