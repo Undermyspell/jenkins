@@ -15,7 +15,7 @@ RUN npm ci --omit=dev --omit=optional && npm cache clean --force
 
 FROM nginx:stable
 
-COPY ../nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/ng-sample /usr/share/nginx/html
 
 WORKDIR /app
