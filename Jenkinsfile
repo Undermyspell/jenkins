@@ -1,4 +1,4 @@
-def getDockerTag {
+def getDockerTag() {
     def today = new Date() 
     return todayformat("yyyy.MM.dd:") + "${GIT_COMMIT}"[0..7]
 }
