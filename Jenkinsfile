@@ -1,6 +1,13 @@
+def getDockerTag {
+    def today = new Date() 
+    return todayformat("yyyy.MM.dd:") + "${GIT_COMMIT}"[0..7]
+}
+
 pipeline {
     agent any
-
+    environment {
+        DOCKER_TAG = getDockerTag()
+    }
     stages {
         stage("Parallel") {
             parallel {
@@ -23,9 +30,10 @@ pipeline {
                 }
             }
         }
-        stage('Docker run') {
+        stage('Print Build Tag') {
             steps {
-                sh "docker run --rm hello-world"
+                sh "echo ${GIT_COMMIT}"
+                sh "echo ${DOCKER_TAG}"
             }
         }
         stage('Docker build') {
