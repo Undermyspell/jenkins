@@ -1,6 +1,6 @@
 def getDockerTag() {
     def today = new Date() 
-    return todayformat("yyyy.MM.dd:") + "${GIT_COMMIT}"[0..7]
+    return today.format("yyyy.MM.dd:") + "${GIT_COMMIT}"[0..7]
 }
 
 pipeline {
