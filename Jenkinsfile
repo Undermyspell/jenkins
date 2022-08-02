@@ -31,6 +31,9 @@ pipeline {
             }
         }
         stage("Parallel2") {
+            steps {
+                echo "Going parallel"
+            }
             parallel {
                 stage('Build') {
                     steps {
